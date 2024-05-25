@@ -1,0 +1,78 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+<ExtendedButton>
+    elevation: 3
+    -height: "56dp"
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    unfocus_color: "#fffcf4"
+MDScreen:
+    MDNavigationLayout:
+        ScreenManager:
+            MDScreen:
+                MDBoxLayout:
+                    orientation: "vertical"
+                    MDBoxLayout:
+                        adaptive_height: True
+                        md_bg_color: "#fffcf4"
+                        padding: "12dp"
+                        MDLabel:
+                            text: "12:00"
+                            adaptive_height: True
+                            pos_hint: {"center_y": .8}
+                    MDBoxLayout:
+                        MDNavigationRail:
+                            id: navigation_rail
+                            md_bg_color: "#fffcf4"
+                            selected_color_background: "#e7e4c0"
+                            ripple_color_item: "#e7e4c0"
+                            on_item_release: app.switch_screen(*args)
+                            MDNavigationRailMenuButton:
+                                on_release: nav_drawer.set_state("open")
+                            MDNavigationRailFabButton:
+                                md_bg_color: "#b0f0d6"
+                            MDNavigationRailItem:
+                                text: "Python"
+                                icon: "language-python"
+                            MDNavigationRailItem:
+                                text: "JavaScript"
+                                icon: "language-javascript"
+                            MDNavigationRailItem:
+                                text: "CPP"
+                                icon: "language-cpp"
+                            MDNavigationRailItem:
+                                text: "Swift"
+                                icon: "language-swift"
+                        ScreenManager:
+                            id: screen_manager
+    MDNavigationDrawer:
+        id: nav_drawer
+        radius: (0, 16, 16, 0)
+        md_bg_color: "#fffcf4"
+        elevation: 12
+        width: "280dp"
+        MDNavigationDrawerMenu:
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                spacing: "12dp"
+                padding: 0, 0, 0, "12dp"
+                MDIconButton:
+                    icon: "menu"
+                ExtendedButton:
+                    text: "Compose"
+                    icon: "pencil"
+            DrawerClickableItem:
+                text: "Python"
+                icon: "language-python"
+            DrawerClickableItem:
+                text: "JavaScript"
+                icon: "language-javascript"
+            DrawerClickableItem:
+                text: "CPP"
+                icon: "language-cpp"
+            DrawerClickableItem:
+                text: "Swift"
+                icon: "language-swift"
+            
+                            
+   
